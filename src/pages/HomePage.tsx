@@ -1,7 +1,6 @@
 import { Link } from 'react-router-dom'
 import { ArrowRight } from 'lucide-react'
-import { CopyableCa } from '../components/CopyableCa'
-import { ECONOMICS, ROBINHOOD_CHAIN, TIERS, TRADE_LINKS } from '../config'
+import { ECONOMICS, ROBINHOOD_CHAIN, TIERS } from '../config'
 
 const TIER_AMOUNTS = [
   '100,000',
@@ -39,53 +38,44 @@ export default function HomePage() {
   return (
     <div>
       {/* Hero */}
-      <section className="relative overflow-hidden border-b border-white/10 px-6 py-20 md:py-28">
-        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(232,165,75,0.12),transparent_55%)]" />
-        <div className="relative mx-auto max-w-3xl text-center">
-          <p className="mb-4 text-xs uppercase tracking-[0.2em] text-white/40">
+      <section className="relative isolate overflow-hidden border-b border-white/10 min-h-[520px] md:min-h-[640px]">
+        <video
+          className="absolute inset-0 h-full w-full object-cover brightness-90"
+          src="/prey-hero.mp4"
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="auto"
+          aria-hidden
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/55 via-black/45 to-black/70" />
+        <div className="relative mx-auto flex min-h-[520px] md:min-h-[640px] max-w-3xl flex-col items-center justify-center px-6 py-20 md:py-28 text-center">
+          <p className="mb-4 text-xs uppercase tracking-[0.2em] text-white/55">
             {ECONOMICS.pair} on {ROBINHOOD_CHAIN.name}
           </p>
-          <h1 className="text-5xl md:text-7xl font-semibold tracking-tight text-white leading-[1.05]">
+          <h1 className="text-5xl md:text-7xl font-semibold tracking-tight text-white leading-[1.05] drop-shadow-sm">
             Hunt the whales.
             <br />
             <span className="font-display italic text-bone/90">Take the bounty.</span>
           </h1>
-          <p className="mx-auto mt-6 max-w-lg text-base md:text-lg text-white/60 leading-relaxed">
+          <p className="mx-auto mt-6 max-w-lg text-base md:text-lg text-white/75 leading-relaxed">
             Not a fair fight. Whales sit on Most Wanted with a prize on their head. You trade HOUND
             from your wallet in the same window. Beat their PnL and the bounty is yours.
           </p>
           <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
             <Link
               to="/hunt"
-              className="inline-flex items-center gap-2 rounded-full bg-ember px-6 py-3 text-sm font-semibold text-black hover:bg-ember-bright"
+              className="btn-lift inline-flex items-center gap-2 rounded-full bg-ember px-6 py-3 text-sm font-semibold text-hood-deep hover:bg-ember-bright"
             >
               Take a trail <ArrowRight size={16} />
             </Link>
             <Link
               to="/treasury#tiers"
-              className="inline-flex items-center gap-1 text-sm text-ember underline underline-offset-4"
+              className="btn-lift inline-flex items-center gap-1 text-sm text-ember underline underline-offset-4"
             >
               See the tiers <ArrowRight size={14} />
             </Link>
-          </div>
-          <div className="mt-10 flex flex-wrap items-center justify-center gap-3">
-            <CopyableCa />
-            <a
-              href={TRADE_LINKS.gmgn}
-              target="_blank"
-              rel="noreferrer"
-              className="rounded-full border border-white/15 px-4 py-1.5 text-xs text-white/70 hover:text-white"
-            >
-              Trade on GMGN ↗
-            </a>
-            <a
-              href={TRADE_LINKS.axiom}
-              target="_blank"
-              rel="noreferrer"
-              className="rounded-full border border-white/15 px-4 py-1.5 text-xs text-white/70 hover:text-white"
-            >
-              Trade on Axiom ↗
-            </a>
           </div>
         </div>
       </section>
@@ -100,15 +90,15 @@ export default function HomePage() {
         <p className="mt-6 text-sm text-white/40">No hunts are running.</p>
         <Link
           to="/hunt"
-          className="mt-8 inline-flex items-center gap-2 rounded-full bg-ember px-8 py-3.5 text-sm font-semibold text-black"
+          className="btn-lift mt-8 inline-flex items-center gap-2 rounded-full bg-ember px-8 py-3.5 text-sm font-semibold text-hood-deep hover:bg-ember-bright"
         >
           Enter The Hunt <ArrowRight size={16} />
         </Link>
       </section>
 
       {/* Loop strip */}
-      <section className="bg-ember text-black">
-        <div className="mx-auto grid max-w-6xl grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-black/15">
+      <section className="bg-ember text-hood-deep">
+        <div className="mx-auto grid max-w-6xl grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-hood-deep/15">
           {[
             ['HUNT', 'TAKE THEIR BOUNTY'],
             ['PREY', 'TIER YOUR SCENT'],
@@ -137,50 +127,82 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Tiers (light) */}
-      <section className="bg-bone text-black px-6 py-20 md:py-28">
-        <div className="mx-auto max-w-5xl">
+      {/* Tiers */}
+      <section className="relative overflow-hidden bg-bone text-black px-6 py-20 md:py-28">
+        <div className="pointer-events-none absolute -top-24 right-0 h-72 w-72 rounded-full bg-ember/35 blur-3xl" />
+        <div className="pointer-events-none absolute bottom-0 left-0 h-56 w-56 rounded-full bg-ember/20 blur-3xl" />
+        <div className="relative mx-auto max-w-5xl">
+          <p className="mb-4 text-xs font-semibold uppercase tracking-[0.22em] text-black/45">
+            Ten scent levels
+          </p>
           <h2 className="text-3xl md:text-5xl font-semibold tracking-tight leading-[1.15] max-w-3xl">
             A trading contest usually takes a desk and a licence. Here it takes{' '}
-            <span className="bg-black text-white px-2 py-0.5 inline-block">a tier</span>.
+            <span className="bg-black text-ember px-2.5 py-0.5 inline-block">a tier</span>.
           </h2>
           <p className="mt-5 max-w-2xl text-sm md:text-base text-black/60 leading-relaxed">
             Upgrade your tier with Prey. A tier never falls. It multiplies your share of every
             reward payout, and once HOUND graduates it is what lets you enter a hunt.
           </p>
 
-          <div className="mt-14 flex items-end justify-between gap-1 sm:gap-2 h-48 sm:h-56">
-            {TIERS.map((t, i) => (
-              <div key={t.id} className="flex-1 flex flex-col items-center gap-2 min-w-0 h-full justify-end">
-                <span className="text-[9px] sm:text-[10px] text-black/40 hidden sm:block">
-                  Tier {t.id}
-                </span>
-                <div
-                  className={`w-full rounded-t-sm ${t.id === 10 ? 'bg-black/40' : 'bg-black'}`}
-                  style={{ height: `${18 + t.id * 8}%` }}
-                />
-                <div className="text-center w-full">
-                  <p className="text-[9px] sm:text-[11px] font-medium truncate leading-tight">
-                    {t.name}
-                  </p>
-                  <p className="text-[8px] sm:text-[10px] text-black/50 truncate">
-                    {TIER_AMOUNTS[i]} Prey
-                  </p>
-                  <p className="text-[8px] sm:text-[10px] text-black/40">{t.mult}</p>
-                </div>
-              </div>
-            ))}
+          <div className="mt-16 border-b border-black/10 pb-3">
+            <div className="flex items-end gap-1.5 sm:gap-2.5 h-52 sm:h-64">
+              {TIERS.map((t, i) => {
+                const h = 12 + t.id * 8.5
+                const isTop = t.id === 10
+                return (
+                  <div
+                    key={t.id}
+                    className="group flex-1 flex flex-col items-center min-w-0 h-full justify-end"
+                  >
+                    <span
+                      className={`mb-2 text-[10px] font-semibold tabular-nums transition-colors ${
+                        isTop ? 'text-black' : 'text-black/35 group-hover:text-black/70'
+                      }`}
+                    >
+                      {t.mult}
+                    </span>
+                    <div
+                      className={`relative w-full origin-bottom transition-transform duration-300 group-hover:scale-y-[1.04] ${
+                        isTop
+                          ? 'rounded-t-md bg-ember shadow-[0_0_28px_rgba(204,255,0,0.55)]'
+                          : 'rounded-t-md bg-gradient-to-t from-black via-black to-neutral-700'
+                      }`}
+                      style={{ height: `${h}%` }}
+                    >
+                      {isTop ? (
+                        <span className="absolute inset-x-0 top-2 text-center text-[9px] font-bold uppercase tracking-wider text-black/70">
+                          Max
+                        </span>
+                      ) : null}
+                    </div>
+                    <div className="mt-3 w-full text-center">
+                      <p className="text-[10px] sm:text-xs font-semibold truncate leading-tight">
+                        {t.name}
+                      </p>
+                      <p className="mt-0.5 text-[9px] sm:text-[10px] text-black/45 truncate">
+                        {TIER_AMOUNTS[i]} Prey
+                      </p>
+                      <p className="mt-1 text-[9px] sm:text-[10px] font-medium text-black/35">
+                        T{t.id}
+                      </p>
+                    </div>
+                  </div>
+                )
+              })}
+            </div>
           </div>
-          <div className="mt-4 flex justify-between text-xs text-black/40">
-            <span>Tier 1</span>
-            <span>Tier 10</span>
+
+          <div className="mt-8 flex flex-wrap items-center justify-between gap-4">
+            <p className="text-xs text-black/45">
+              From Stray to Prey Lord · multipliers lock in, never drop
+            </p>
+            <Link
+              to="/treasury#tiers"
+              className="btn-lift inline-flex items-center gap-2 rounded-full bg-black px-5 py-2.5 text-sm font-semibold text-ember hover:bg-neutral-900"
+            >
+              Get a tier <ArrowRight size={14} />
+            </Link>
           </div>
-          <Link
-            to="/treasury#tiers"
-            className="mt-8 inline-flex items-center gap-1 text-sm font-medium text-black underline underline-offset-4"
-          >
-            Get a tier <ArrowRight size={14} />
-          </Link>
         </div>
       </section>
 
@@ -198,35 +220,40 @@ export default function HomePage() {
         </p>
       </section>
 
-      {/* Nine tenths */}
-      <section className="relative overflow-hidden px-6 py-20 md:py-28 border-b border-white/10">
-        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,rgba(40,60,40,0.35),transparent_55%)]" />
-        <div className="relative mx-auto max-w-5xl grid grid-cols-1 lg:grid-cols-[1.1fr_0.9fr] gap-12 items-center">
-          <div>
-            <h2 className="text-3xl md:text-5xl font-semibold tracking-tight leading-tight">
+      {/* Nine tenths — salad field + floating P */}
+      <section className="relative isolate overflow-hidden border-b border-black/10 bg-salad min-h-[520px] md:min-h-[640px]">
+        <div className="pointer-events-none absolute -left-20 top-10 h-64 w-64 rounded-full bg-ember/25 blur-3xl" />
+        <div className="pointer-events-none absolute bottom-0 right-1/3 h-48 w-48 rounded-full bg-white/50 blur-3xl" />
+
+        <div className="relative mx-auto grid min-h-[520px] md:min-h-[640px] max-w-6xl grid-cols-1 items-center gap-10 px-6 py-16 md:grid-cols-[1.05fr_0.95fr] md:py-24">
+          <div className="max-w-xl">
+            <h2 className="text-3xl md:text-5xl font-semibold tracking-tight leading-tight text-black">
               Nine tenths of a payout goes to hunters.
             </h2>
-            <p className="mt-5 text-sm md:text-base text-white/55 leading-relaxed max-w-lg">
+            <p className="mt-5 text-sm md:text-base text-black/65 leading-relaxed">
               They are split by the fees you paid, times your tier. The last tenth goes to whoever
               brought you in, three referrers deep. Trade nothing and you are out of that payout,
               whatever tier you hold.
             </p>
             <div className="mt-10 flex flex-wrap items-center gap-4">
-              <div className="flex h-20 w-20 items-center justify-center rounded-full border border-ember/50 text-ember text-lg font-semibold">
+              <div className="flex h-20 w-20 items-center justify-center rounded-full border border-black/20 bg-black text-ember text-lg font-semibold shadow-sm">
                 {ECONOMICS.poolTradersPct}%
               </div>
-              <span className="text-white/30 tracking-[0.4em]">····→</span>
-              <div className="flex h-20 w-20 items-center justify-center rounded-full border border-ember/50 text-ember text-lg font-semibold">
+              <span className="text-black/35 tracking-[0.4em]">····→</span>
+              <div className="flex h-20 w-20 items-center justify-center rounded-full border border-black/20 bg-black text-ember text-lg font-semibold shadow-sm">
                 {ECONOMICS.poolReferrersPct}%
               </div>
-              <span className="text-white/30 tracking-[0.4em]">····→</span>
+              <span className="text-black/35 tracking-[0.4em]">····→</span>
             </div>
           </div>
-          <div className="flex justify-center lg:justify-end">
+
+          <div className="relative flex items-center justify-center md:justify-end">
+            <div className="pointer-events-none absolute inset-8 rounded-full bg-ember/30 blur-2xl" />
             <img
-              src="/prey-logo.jpg"
-              alt=""
-              className="h-56 w-56 md:h-72 md:w-72 rounded-3xl object-cover shadow-2xl shadow-black/50"
+              src="/prey-letter-p.png"
+              alt="П"
+              className="prey-letter-float relative z-10 w-[min(100%,340px)] md:w-[min(100%,420px)] select-none"
+              draggable={false}
             />
           </div>
         </div>
@@ -242,13 +269,13 @@ export default function HomePage() {
             <div className="mt-6 flex flex-col gap-3">
               <Link
                 to="/treasury"
-                className="inline-flex items-center gap-1 text-sm text-ember underline underline-offset-4"
+                className="btn-lift inline-flex items-center gap-1 text-sm text-ember underline underline-offset-4"
               >
                 How rewards are split <ArrowRight size={14} />
               </Link>
               <Link
                 to="/structure"
-                className="inline-flex items-center gap-1 text-sm text-ember underline underline-offset-4"
+                className="btn-lift inline-flex items-center gap-1 text-sm text-ember underline underline-offset-4"
               >
                 Contract addresses <ArrowRight size={14} />
               </Link>
@@ -265,47 +292,6 @@ export default function HomePage() {
               </div>
             ))}
           </dl>
-        </div>
-      </section>
-
-      {/* Asset slots */}
-      <section className="px-6 py-20">
-        <div className="mx-auto max-w-4xl text-center">
-          <h2 className="text-3xl md:text-5xl font-semibold tracking-tight">
-            Today you hunt on HOUND.
-          </h2>
-          <p className="mt-4 text-white/50 text-sm md:text-base max-w-2xl mx-auto leading-relaxed">
-            HOUND is the only asset a trail is run on right now. Every coin after it arrives through
-            a partnership, chosen and announced with the project behind it, one at a time.
-          </p>
-          <div className="mt-12 flex flex-wrap justify-center gap-10">
-            <div className="flex flex-col items-center gap-2">
-              <div className="flex h-24 w-24 items-center justify-center rounded-full bg-white text-black font-bold text-xl">
-                H
-              </div>
-              <span className="text-white font-medium">HOUND</span>
-              <span className="text-ember text-xs uppercase tracking-widest">Live</span>
-            </div>
-            {[1, 2].map((i) => (
-              <div key={i} className="flex flex-col items-center gap-2">
-                <div className="flex h-24 w-24 items-center justify-center rounded-full border border-white/10 bg-white/5 text-white/30 text-2xl">
-                  ?
-                </div>
-                <span className="text-white/40">Partner</span>
-                <span className="text-white/30 text-xs uppercase tracking-widest">Open</span>
-              </div>
-            ))}
-          </div>
-          <p className="mt-10 text-xs text-white/40 max-w-xl mx-auto">
-            Bounties settle in ETH or graduated coins. Partners are picked by us, with the reason
-            published.
-          </p>
-          <Link
-            to="/listings"
-            className="mt-4 inline-flex text-sm text-ember underline underline-offset-4"
-          >
-            How an asset gets listed →
-          </Link>
         </div>
       </section>
     </div>

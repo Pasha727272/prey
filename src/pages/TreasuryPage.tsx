@@ -95,18 +95,6 @@ export default function TreasuryPage() {
             </tbody>
           </table>
         </div>
-
-        <div className="mt-8 flex h-40 items-end gap-1.5">
-          {TIERS.map((t) => (
-            <div key={t.id} className="flex-1 flex flex-col items-center gap-1">
-              <div
-                className={`w-full rounded-t ${t.id === 10 ? 'bg-white/40' : 'bg-white'}`}
-                style={{ height: `${t.id * 10}%` }}
-              />
-              <span className="text-[10px] text-white/35">{t.id}</span>
-            </div>
-          ))}
-        </div>
       </div>
 
       <div className="mt-12 border-t border-white/10 pt-8">

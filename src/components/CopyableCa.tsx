@@ -17,7 +17,7 @@ export function CopyableCa({ className = '' }: { className?: string }) {
       type="button"
       onClick={copy}
       title={HOUND_CA}
-      className={`inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-3 py-1.5 text-xs text-white/80 hover:bg-white/10 hover:text-white transition-colors ${className}`}
+      className={`btn-lift inline-flex items-center gap-2 rounded-full border border-white/20 bg-hood-deep/40 px-3 py-1.5 text-xs text-white/80 hover:bg-hood-deep/70 hover:text-white ${className}`}
     >
       <span className="text-white/40 tracking-wide uppercase">CA</span>
       <span className="font-mono">{truncateAddress(HOUND_CA)}</span>

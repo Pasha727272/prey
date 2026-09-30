@@ -70,7 +70,7 @@ export function ConnectModal() {
                 type="button"
                 disabled={connecting}
                 onClick={() => void connect(w.id)}
-                className="flex w-full items-center gap-3 rounded-xl border border-white/10 bg-white/[0.03] px-4 py-3.5 text-left transition hover:border-ember/50 hover:bg-white/[0.06] disabled:opacity-60"
+                className="btn-lift flex w-full items-center gap-3 rounded-xl border border-white/10 bg-white/[0.03] px-4 py-3.5 text-left transition hover:border-ember/50 hover:bg-white/[0.06] disabled:opacity-60"
               >
                 <img
                   src={w.icon}

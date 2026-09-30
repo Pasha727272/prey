@@ -2,9 +2,13 @@
 @import "tailwindcss";
 
 @theme {
-  --color-ember: #e8a54b;
-  --color-ember-bright: #f0b85c;
+  /* Official Robinhood green #CCFF00 — dark ink for text/buttons on neon surfaces */
+  --color-ember: #ccff00;
+  --color-ember-bright: #d9ff33;
+  --color-hood: #ccff00;
+  --color-hood-deep: #000000;
   --color-bone: #e8e2d6;
+  --color-salad: #e4efdf;
   --font-sans: "DM Sans", ui-sans-serif, system-ui, sans-serif;
   --font-display: "Instrument Serif", Georgia, serif;
 }
@@ -21,4 +25,85 @@ body,
 
 body {
   -webkit-font-smoothing: antialiased;
+}
+
+.btn-lift {
+  transition:
+    transform 0.22s cubic-bezier(0.22, 1, 0.36, 1),
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease,
+    box-shadow 0.22s ease;
+  will-change: transform;
+}
+
+.btn-lift:hover {
+  transform: scale(1.045);
+}
+
+.btn-lift:active {
+  transform: scale(0.985);
+}
+
+/* Page scrollbar — thin, dark track, Robinhood green thumb */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #ccff00 #141414;
+}
+
+*::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+*::-webkit-scrollbar-track {
+  background: #0a0a0a;
+  border-left: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+*::-webkit-scrollbar-thumb {
+  background: #ccff00;
+  border-radius: 999px;
+  border: 2px solid #0a0a0a;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background: #d9ff33;
+}
+
+*::-webkit-scrollbar-corner {
+  background: #0a0a0a;
+}
+
+@keyframes prey-float {
+  0%,
+  100% {
+    transform: translateY(0) rotate(-2deg);
+  }
+  50% {
+    transform: translateY(-18px) rotate(2.5deg);
+  }
+}
+
+@keyframes prey-glow {
+  0%,
+  100% {
+    filter: drop-shadow(0 18px 28px rgba(0, 0, 0, 0.22));
+  }
+  50% {
+    filter: drop-shadow(0 28px 40px rgba(0, 0, 0, 0.18)) drop-shadow(0 0 28px rgba(204, 255, 0, 0.35));
+  }
+}
+
+.prey-letter-float {
+  animation:
+    prey-float 5.5s ease-in-out infinite,
+    prey-glow 5.5s ease-in-out infinite;
+  will-change: transform, filter;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .prey-letter-float {
+    animation: none;
+  }
 }
